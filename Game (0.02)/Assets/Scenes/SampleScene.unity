@@ -254,7 +254,7 @@ MonoBehaviour:
   m_LookaheadSmoothing: 0
   m_LookaheadIgnoreY: 0
   m_XDamping: 1
-  m_YDamping: 1
+  m_YDamping: 0
   m_ZDamping: 1
   m_TargetMovementOnly: 1
   m_ScreenX: 0.5
@@ -414,9 +414,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95e86cefe63160d4d9e72232eaeabbf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 2035594185}
-  offset: {x: 0, y: 0, z: -10}
-  smoothFactor: 3
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -1125,6 +1122,7 @@ GameObject:
   - component: {fileID: 2035594188}
   - component: {fileID: 2035594187}
   - component: {fileID: 2035594186}
+  - component: {fileID: 2035594191}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -1304,6 +1302,20 @@ MonoBehaviour:
   OnCrouchEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2035594191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2035594183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39701cab87140174182487b3d23acdb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dashSpeed: 20
+  startDashTime: 0.2
 --- !u!1 &2130071577
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,10 +10,14 @@ public class DashMove : MonoBehaviour
     public float startDashTime;
     private int direction;
     private int dashDirection;
+    public bool isDashing;
+    public float noGrav;
+    public float normGrav;
     void Start()
     {
       rb = GetComponent<Rigidbody2D>();  
       dashTime = startDashTime;
+      isDashing = false;
     }
 
     
@@ -29,8 +33,13 @@ public class DashMove : MonoBehaviour
       {
           if(Input.GetButtonDown("Dash") && dashDirection == 1){
               direction = 1;
+              isDashing = true;
+              rb.gravityScale = noGrav;
+              
           } else if(Input.GetButtonDown("Dash") && dashDirection == -1){
               direction = 2;
+              isDashing = true;
+              rb.gravityScale = noGrav;
           }
       } else {
           if(dashTime <= 0 && !Input.GetButtonDown("Right")){
@@ -47,5 +56,9 @@ public class DashMove : MonoBehaviour
               }
           }
       }
+      if (dashTime <= 0){
+           isDashing = false;
+           rb.gravityScale = normGrav;
+      } 
     }
 }

@@ -4,14 +4,21 @@ using UnityEngine;
 
 public class HandCannon : MonoBehaviour
 {
+    DashMove dashMove;
+    [SerializeField] GameObject player;
 
     public Transform firePoint;
     public GameObject bulletPrefab;
 
     // Update is called once per frame
-    void Update()
+    void Awake()
     {
-        if (Input.GetButtonDown("Fire1"))
+        dashMove = GameObject.Find("Player").GetComponent<DashMove>();
+    }
+    
+    void FixedUpdate()
+    {
+        if (Input.GetButton("Fire1") && dashMove.isDashing == false)
         {
             Shoot();
         }

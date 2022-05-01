@@ -253,7 +253,7 @@ MonoBehaviour:
   m_LookaheadTime: 0
   m_LookaheadSmoothing: 0
   m_LookaheadIgnoreY: 0
-  m_XDamping: 1
+  m_XDamping: 1.25
   m_YDamping: 0
   m_ZDamping: 1
   m_TargetMovementOnly: 1
@@ -398,7 +398,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 395326946}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.47, y: 0.91, z: 0}
+  m_LocalPosition: {x: 5.18, y: 0.91, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2035594185}
@@ -1243,6 +1243,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 2035594190}
   runSpeed: 40
+  player: {fileID: 2035594183}
 --- !u!58 &2035594187
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1346,8 +1347,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39701cab87140174182487b3d23acdb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dashSpeed: 20
+  dashSpeed: 15
   startDashTime: 0.2
+  isDashing: 0
+  noGrav: 0
+  normGrav: 3
 --- !u!114 &2035594192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1360,6 +1364,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d34584be6173be84e9a4c67f5701bd3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 2035594183}
   firePoint: {fileID: 395326947}
   bulletPrefab: {fileID: 5610700050870282370, guid: 31543a1763176384d80059da6944af67, type: 3}
 --- !u!1 &2130071577

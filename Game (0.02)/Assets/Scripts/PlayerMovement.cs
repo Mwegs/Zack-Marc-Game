@@ -11,6 +11,14 @@ public class PlayerMovement : MonoBehaviour
     bool jump = false;
     bool crouch = false;
 
+    DashMove dashMove;
+    [SerializeField] GameObject player;
+
+     void Awake()
+    {
+        dashMove = GameObject.Find("Player").GetComponent<DashMove>();
+    }
+
 
     void Update()
     {
@@ -32,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (dashMove.isDashing == false)
         controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump);
         jump = false;
     }

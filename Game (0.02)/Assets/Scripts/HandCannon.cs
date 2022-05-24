@@ -9,6 +9,8 @@ public class HandCannon : MonoBehaviour
 
     public Transform firePoint;
     public GameObject bulletPrefab;
+    public float fireRate = 1;
+    private float nextShotTime = 0;
 
     // Update is called once per frame
     void Awake()
@@ -18,9 +20,10 @@ public class HandCannon : MonoBehaviour
     
     void FixedUpdate()
     {
-        if (Input.GetButton("Fire1") && dashMove.isDashing == false)
+        if (Input.GetButton("Fire1") && dashMove.isDashing == false && Time.time > nextShotTime)
         {
             Shoot();
+            nextShotTime = Time.time + fireRate;
         }
     }
 

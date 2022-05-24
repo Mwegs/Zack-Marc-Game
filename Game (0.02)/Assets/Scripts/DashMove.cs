@@ -13,6 +13,9 @@ public class DashMove : MonoBehaviour
     public bool isDashing;
     public float noGrav;
     public float normGrav;
+    public float dashCooldown = 2;
+    private float nextDashTime = 0;
+    
     void Start()
     {
       rb = GetComponent<Rigidbody2D>();  
@@ -31,15 +34,17 @@ public class DashMove : MonoBehaviour
       }
       if(direction ==0)
       {
-          if(Input.GetButtonDown("Dash") && dashDirection == 1){
+          if(Input.GetButtonDown("Dash") && dashDirection == 1 && Time.time > nextDashTime){
               direction = 1;
               isDashing = true;
               rb.gravityScale = noGrav;
+              nextDashTime = Time.time + dashCooldown;
               
-          } else if(Input.GetButtonDown("Dash") && dashDirection == -1){
+          } else if(Input.GetButtonDown("Dash") && dashDirection == -1 && Time.time > nextDashTime){
               direction = 2;
               isDashing = true;
               rb.gravityScale = noGrav;
+              nextDashTime = Time.time + dashCooldown;
           }
       } else {
           if(dashTime <= 0 && !Input.GetButtonDown("Right")){
